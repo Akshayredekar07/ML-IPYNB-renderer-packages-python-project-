@@ -1,11 +1,14 @@
 name: Python application
+
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
 permissions:
   contents: read
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -13,8 +16,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         python-version: ["3.9", "3.10", "3.11"]
+
     steps:
-    - uses: actions/checkout@v3
+    - name: Check Node.js version
+      run: node -v
+    - uses: actions/checkout@v4  # Update to use Node.js version 20
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
