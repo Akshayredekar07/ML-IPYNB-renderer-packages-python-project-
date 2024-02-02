@@ -20,7 +20,7 @@ jobs:
     steps:
     - name: Check Node.js version
       run: node -v
-    - uses: actions/checkout@v4  # Update to use Node.js version 20
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
